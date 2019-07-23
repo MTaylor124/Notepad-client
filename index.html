@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>MTaylor Notepad</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,6 +12,29 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <h1>lets get more bread</h1>
+      <form id="sign-up">
+                <h2>sign-up</h2>
+                <input type="email" name="credentials[email]" placeholder="email">
+                <input type="password" name="credentials[password]" placeholder="password">
+                <input type="password" name="credentials[password_confirmation]" placeholder="confirm password">
+                <button type="submit">Create Account</button>
+              </form>
+              <form id="sign-in">
+              <h2> sign in</h2>
+              <input type="email" name="credentials[email]" placeholder="email">
+              <input type="password" name="credentials[password]" placeholder="password">
+              <button type="submit">sign in</button>
+            </form>
+              <form id="change-password">
+                <h2>change pw</h2>
+                <input type="password" name="passwords[old]" placeholder="old password">
+                <input type="password" name="passwords[new]" placeholder="new password">
+                <button type="submit">change password</button>
+              </form>
+              <form id="sign-out">
+                <h2>log out</h2>
+                <button type="submit">sign out</button>
+              </form>
     </body>
 </html>
