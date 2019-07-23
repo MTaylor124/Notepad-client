@@ -1,1 +1,29 @@
 @import '~bootstrap/scss/bootstrap';
+
+#sign-out {
+  display: inline;
+}
+
+#header-auth {
+  font-size: 35px;
+  text-align: center;
+}
+
+button:hover {
+    text-decoration: underline;
+}
+
+button {
+
+  background-color: white;
+  color: black;
+  text-transform: uppercase;
+  border: 0;
+}
+
+form {
+  text-align: center;
+}
+#authNotification {
+  text-align: center;
+}

@@ -3,69 +3,75 @@ const store = require('./../store')
 
 const signUpSuccess = () => {
   $('form').trigger('reset')
-  $('#check-sign-up').text('successfully signed up')
+  $('#authNotification').text('successfully signed up')
   setTimeout(function () {
-    $('#check-sign-up').text('')
+    $('#authNotification').text('')
   }, 2000)
+  $('#sign-up').hide()
 }
 const signUpFailure = () => {
   $('form').trigger('reset')
-  $('#check-sign-up').text('sign up failed')
+  $('#authNotification').text('sign up failed')
   setTimeout(function () {
-    $('#check-sign-up').text('')
+    $('#authNotification').text('')
   }, 2000)
 }
 
 const signInSuccess = (data) => {
   $('form').trigger('reset')
-  $('#check-sign-in').text('signed in')
+  $('#authNotification').text('signed in')
   setTimeout(function () {
-    $('#check-sign-in').text('')
+    $('#authNotification').text('')
   }, 2000)
-  $('.hidesignout').show()
-  $('.hidesignin').hide()
+  $('#sign-out').show()
+  $('#sign-in').hide()
+  $('#show-change-password').show()
+  $('#show-sign-in').hide()
+  $('#show-sign-up').hide()
   store.user = data.user
-  $('#initiate-game').show()
 }
 const signInFailure = () => {
   $('form').trigger('reset')
-  $('#check-sign-in').text('sign in failed')
+  $('#authNotification').text('sign in failed')
   setTimeout(function () {
-    $('#check-sign-in').text('')
+    $('#authNotification').text('')
   }, 2000)
 }
 
 const changePasswordSuccess = () => {
   $('form').trigger('reset')
-  $('#check-change-password').text('password changed')
+  $('#authNotification').text('password changed')
   setTimeout(function () {
-    $('#check-change-password').text('')
+    $('#authNotification').text('')
   }, 2000)
+  $('#change-password').hide()
+  $('#sign-out').show()
 }
 const changePasswordFailure = () => {
   $('form').trigger('reset')
-  $('#check-change-password').text('password change failed')
+  $('#authNotification').text('password change failed')
   setTimeout(function () {
-    $('#check-change-password').text('')
+    $('#authNotification').text('')
   }, 2000)
 }
 
 const signOutSuccess = () => {
   $('form').trigger('reset')
-  $('#check-sign-out').text('signed out')
+  $('#authNotification').text('signed out')
   setTimeout(function () {
-    $('#check-sign-out').text('')
+    $('#authNotification').text('')
   }, 2000)
-  $('#initiate-game').hide()
-  $('.hidesignout').hide()
-  $('.hidesignin').show()
+  $('#sign-out').hide()
+  $('#show-change-password').hide()
+  $('#show-sign-in').show()
+  $('#show-sign-up').show()
 }
 
 const signOutFailure = () => {
   $('form').trigger('reset')
-  $('#check-sign-out').text('failed to sign out')
+  $('#authNotification').text('failed to sign out')
   setTimeout(function () {
-    $('#check-sign-out').text('')
+    $('#authNotification').text('')
   }, 2000)
 }
 

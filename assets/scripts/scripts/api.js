@@ -40,9 +40,18 @@ const signOut = () => {
   })
 }
 
+const createNote = formData => {
+  return $.ajax({
+    url: config.apiUrl + '/create-note',
+    data: formData,
+    method: 'POST'
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   changePassword,
-  signOut
+  signOut,
+  createNote
 }

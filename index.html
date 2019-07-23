@@ -12,29 +12,45 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>lets get more bread</h1>
+      <div id="header-auth">
+      <span id="theNugPad"><b>NUGPAD</b></span>
+      <button id="show-sign-up">sign-up</button>
+      <button id="show-sign-in">sign-in</button>
+      <button id="show-change-password">change password</button>
+      <form id="sign-out">
+          <button type="submit">sign out</button>
+      </form>
+    </div>
       <form id="sign-up">
-                <h2>sign-up</h2>
-                <input type="email" name="credentials[email]" placeholder="email">
-                <input type="password" name="credentials[password]" placeholder="password">
-                <input type="password" name="credentials[password_confirmation]" placeholder="confirm password">
-                <button type="submit">Create Account</button>
-              </form>
-              <form id="sign-in">
-              <h2> sign in</h2>
-              <input type="email" name="credentials[email]" placeholder="email">
-              <input type="password" name="credentials[password]" placeholder="password">
-              <button type="submit">sign in</button>
-            </form>
-              <form id="change-password">
-                <h2>change pw</h2>
-                <input type="password" name="passwords[old]" placeholder="old password">
-                <input type="password" name="passwords[new]" placeholder="new password">
-                <button type="submit">change password</button>
-              </form>
-              <form id="sign-out">
-                <h2>log out</h2>
-                <button type="submit">sign out</button>
-              </form>
+          <input type="email" name="credentials[email]" placeholder="email">
+          <input type="password" name="credentials[password]" placeholder="password">
+          <input type="password" name="credentials[password_confirmation]" placeholder="confirm password">
+          <button type="submit">Create Account</button>
+      </form>
+
+      <form id="sign-in">
+          <input type="email" name="credentials[email]" placeholder="email">
+          <input type="password" name="credentials[password]" placeholder="password">
+          <button type="submit">sign in</button>
+      </form>
+
+      <form id="change-password">
+          <input type="password" name="passwords[old]" placeholder="old password">
+          <input type="password" name="passwords[new]" placeholder="new password">
+          <button type="submit">change password</button>
+      </form>
+      <h3 id="authNotification"></h3>
+
+      <form id="create-note">
+        <span>create note</span>
+        <input type="text" name="title" placeholder="Note Title">
+        <input type="text" name="body" placeholder="Note">
+        <input type="text" name="priority" placeholder="priority">
+        <input type="number" name="user_id" placeholder="id">
+          <button type="submit">New Note</button>
+      </form>
+
+
+
     </body>
 </html>
