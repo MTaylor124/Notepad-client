@@ -46,8 +46,8 @@ const onCreateNote = event => {
   const formData = getFormFields(form)
   console.log(formData)
   api.createNote(formData)
-    .then(console.log)
-    .catch(console.log)
+    .then(ui.createNoteSuccess)
+    .catch(ui.createNoteFailure)
 }
 
 const clearAuthpads = () => {
@@ -79,10 +79,51 @@ const showChangePassword = event => {
 }
 
 const onShowNotes = event => {
+  $('#content').text('')
   event.preventDefault()
   api.showNotes()
     .then(ui.showNotesSuccess)
-    .catch(console.log)
+    .catch(ui.showNotesFailure)
+}
+
+const onDeleteNote = event => {
+  event.preventDefault()
+  const form = event.target
+  const formData = getFormFields(form)
+  api.deleteNote(formData)
+    .then(ui.deleteNoteSuccess)
+    .catch(ui.deleteNoteFailure)
+}
+
+const onUpdateNote = event => {
+  event.preventDefault()
+  const form = event.target
+  const formData = getFormFields(form)
+  console.log(formData)
+  api.updateNote(formData)
+    .then(ui.updateNoteSuccess)
+    .catch(ui.updateNoteFailure)
+}
+
+const hideNoteForms = () => {
+  $('#create-note').hide()
+  $('#update-note').hide()
+  $('#delete-note').hide()
+}
+
+const showCreateNote = () => {
+  hideNoteForms()
+  $('#create-note').show()
+}
+
+const showDeleteNote = () => {
+  hideNoteForms()
+  $('#delete-note').show()
+}
+
+const showUpdateNote = () => {
+  hideNoteForms()
+  $('#update-note').show()
 }
 
 module.exports = {
@@ -95,5 +136,10 @@ module.exports = {
   showSignIn,
   showSignOut,
   showChangePassword,
-  onShowNotes
+  onShowNotes,
+  onDeleteNote,
+  onUpdateNote,
+  showCreateNote,
+  showDeleteNote,
+  showUpdateNote
 }

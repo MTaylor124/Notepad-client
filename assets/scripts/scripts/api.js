@@ -46,6 +46,9 @@ const createNote = formData => {
     data: {
       'note': formData
     },
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
     method: 'POST'
   })
 }
@@ -53,7 +56,33 @@ const createNote = formData => {
 const showNotes = () => {
   return $.ajax({
     url: config.apiUrl + '/notes',
-    method: 'GET'
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const deleteNote = formData => {
+  return $.ajax({
+    url: config.apiUrl + '/notes/' + formData.note_id,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const updateNote = formData => {
+  return $.ajax({
+    url: config.apiUrl + '/notes/' + formData.note_id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      'note': formData
+    }
   })
 }
 
@@ -63,5 +92,7 @@ module.exports = {
   changePassword,
   signOut,
   createNote,
-  showNotes
+  showNotes,
+  deleteNote,
+  updateNote
 }

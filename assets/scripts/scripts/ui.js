@@ -30,6 +30,8 @@ const signInSuccess = (data) => {
   $('#show-sign-in').hide()
   $('#show-sign-up').hide()
   store.user = data.user
+  $('#note-header').show()
+  $('#show-notes').show()
 }
 const signInFailure = () => {
   $('form').trigger('reset')
@@ -66,6 +68,11 @@ const signOutSuccess = () => {
   $('#show-change-password').hide()
   $('#show-sign-in').show()
   $('#show-sign-up').show()
+  $('#note-header').hide()
+  $('#content').text('')
+  $('#create-note').hide()
+  $('#update-note').hide()
+  $('#delete-note').hide()
 }
 
 const signOutFailure = () => {
@@ -81,6 +88,71 @@ const showNotesSuccess = (data) => {
   showNotesTemplate({ notes:
   data.notes})
   $('.content').append(showNotesHtml)
+  $('#authNotification').text('notes updated successfully')
+  setTimeout(function () {
+    $('#authNotification').text('')
+  }, 2000)
+}
+
+const showNotesFailure = () => {
+  $('#authNotification').text('show notes failure/no notes to show')
+  setTimeout(function () {
+    $('#authNotification').text('')
+  }, 2000)
+}
+
+const createNoteSuccess = (data) => {
+  $('#create-note').hide()
+  $('form').trigger('reset')
+  const showNotesHtml =
+  showNotesTemplate({ notes:
+  data.notes})
+  $('.content').append(showNotesHtml)
+  $('#authNotification').text('note created successfully')
+  setTimeout(function () {
+    $('#authNotification').text('')
+  }, 2000)
+}
+
+const createNoteFailure = () => {
+  $('form').trigger('reset')
+  $('#authNotification').text('note creation failed')
+  setTimeout(function () {
+    $('#authNotification').text('')
+  }, 2000)
+}
+
+const deleteNoteSuccess = () => {
+  $('form').trigger('reset')
+  $('#delete-note').hide()
+  $('#authNotification').text('note deleted successfully')
+  setTimeout(function () {
+    $('#authNotification').text('')
+  }, 2000)
+}
+
+const deleteNoteFailure = () => {
+  $('form').trigger('reset')
+  $('#authNotification').text('note deletion failed')
+  setTimeout(function () {
+    $('#authNotification').text('')
+  }, 2000)
+}
+
+const updateNoteSuccess = () => {
+  $('form').trigger('reset')
+  $('#update-note').hide()
+  $('#authNotification').text('note updated successfully')
+  setTimeout(function () {
+    $('#authNotification').text('')
+  }, 2000)
+}
+const updateNoteFailure = () => {
+  $('form').trigger('reset')
+  $('#authNotification').text('update note failed')
+  setTimeout(function () {
+    $('#authNotification').text('')
+  }, 2000)
 }
 
 module.exports = {
@@ -92,5 +164,12 @@ module.exports = {
   changePasswordFailure,
   signOutSuccess,
   signOutFailure,
-  showNotesSuccess
+  showNotesSuccess,
+  createNoteSuccess,
+  showNotesFailure,
+  createNoteFailure,
+  deleteNoteSuccess,
+  deleteNoteFailure,
+  updateNoteSuccess,
+  updateNoteFailure
 }

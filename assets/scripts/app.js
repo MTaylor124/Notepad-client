@@ -20,11 +20,26 @@ $(() => {
   $('#show-sign-out').on('click', authEvents.showSignOut)
   $('#sign-out').on('submit', authEvents.onSignOut)
 
+  $('#note-header').hide()
+
   $('#show-change-password').hide()
   $('#change-password').hide()
   $('#show-change-password').on('click', authEvents.showChangePassword)
   $('#change-password').on('submit', authEvents.onChangePassword)
 
+  $('#show-notes').hide()
+  $('#show-show-note').on('click', authEvents.showShowNotes)
+  $('#show-notes').on('submit', authEvents.onShowNotes)
+
+  $('#create-note').hide()
+  $('#show-create-note').on('click', authEvents.showCreateNote)
   $('#create-note').on('submit', authEvents.onCreateNote)
-  $('#show-notes').on('click', authEvents.onShowNotes)
+
+  $('#delete-note').hide()
+  $('#show-delete-note').on('click', authEvents.showDeleteNote)
+  $('#delete-note').on('submit', authEvents.onDeleteNote)
+
+  $('#update-note').hide()
+  $('#show-update-note').on('click', authEvents.showUpdateNote)
+  $('#update-note').on('submit', authEvents.onUpdateNote)
 })

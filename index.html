@@ -41,19 +41,42 @@
       </form>
       <h3 id="authNotification"></h3>
 
+      <br/>
+
+    <div id="note-header">
+      <form id="show-notes">
+        <button type="submit">show/update notes</button>
+      </form>
+      <button id="show-create-note">create note</button>
+      <button id="show-update-note">update note</button>
+      <button id="show-delete-note">delete note</button>
+    </div>
+
+
+    <div id="note-options">
       <form id="create-note">
-        <span>create note</span>
         <input type="text" name="title" placeholder="Note Title">
         <input type="text" name="body" placeholder="Note">
         <input type="text" name="priority" placeholder="priority">
-        <input type="number" name="user_id" placeholder="id">
-          <button type="submit">New Note</button>
+
+          <button type="submit">CREATE</button>
       </form>
 
-      <form id="show-notes">
-        <button type="submit">show all notes</button>
+
+      <form id="delete-note">
+        <input type="number" name="note_id" placeholder="note #">
+        <button type="submit">DELETE Note</button>
       </form>
+
+      <form id="update-note">
+        <input type="number" name="note_id" placeholder="note #">
+        <input type="text" name="title" placeholder="Note Title">
+        <input type="text" name="body" placeholder="Note">
+        <input type="text" name="priority" placeholder="priority">
+        <button type="submit">UPDATE Note</button>
+      </form>
+
       <div id="content" class="content"></div>
-
+    </div>
     </body>
 </html>

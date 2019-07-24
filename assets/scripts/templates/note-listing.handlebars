@@ -2,14 +2,11 @@
   {{log note}}
   <section data-id="{{note.id}}">
 
-    {{#if (eq note.user.id store.data.id)}}
 
     <h2><span>{{note.id}}) </span>title: <span>{{note.title}}</span></h4>
-    <h4>note priority:<span>{{note.priority}}</span></h4>
+    <h4>note priority: <span>{{note.priority}}</span></h4>
     <h4>note body: <span>{{note.body}}</span></h4>
     <h4>written by: <span>{{note.user.id}}</span></h4>
-
-    {{/if}}
 
     </section>
 
