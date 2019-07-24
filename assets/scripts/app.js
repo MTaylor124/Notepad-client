@@ -25,6 +25,6 @@ $(() => {
   $('#show-change-password').on('click', authEvents.showChangePassword)
   $('#change-password').on('submit', authEvents.onChangePassword)
 
-
   $('#create-note').on('submit', authEvents.onCreateNote)
+  $('#show-notes').on('click', authEvents.onShowNotes)
 })

@@ -1,5 +1,6 @@
 'use strict'
 const store = require('./../store')
+const showNotesTemplate = require('./../templates/note-listing.handlebars')
 
 const signUpSuccess = () => {
   $('form').trigger('reset')
@@ -75,6 +76,13 @@ const signOutFailure = () => {
   }, 2000)
 }
 
+const showNotesSuccess = (data) => {
+  const showNotesHtml =
+  showNotesTemplate({ notes:
+  data.notes})
+  $('.content').append(showNotesHtml)
+}
+
 module.exports = {
   signInSuccess,
   signInFailure,
@@ -83,5 +91,6 @@ module.exports = {
   changePasswordSuccess,
   changePasswordFailure,
   signOutSuccess,
-  signOutFailure
+  signOutFailure,
+  showNotesSuccess
 }

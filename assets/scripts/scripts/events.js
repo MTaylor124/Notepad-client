@@ -44,6 +44,7 @@ const onCreateNote = event => {
   event.preventDefault()
   const form = event.target
   const formData = getFormFields(form)
+  console.log(formData)
   api.createNote(formData)
     .then(console.log)
     .catch(console.log)
@@ -77,6 +78,13 @@ const showChangePassword = event => {
   $('#change-password').show()
 }
 
+const onShowNotes = event => {
+  event.preventDefault()
+  api.showNotes()
+    .then(ui.showNotesSuccess)
+    .catch(console.log)
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
@@ -86,5 +94,6 @@ module.exports = {
   showSignUp,
   showSignIn,
   showSignOut,
-  showChangePassword
+  showChangePassword,
+  onShowNotes
 }
