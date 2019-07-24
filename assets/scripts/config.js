@@ -2,8 +2,8 @@
 
 let apiUrl
 const apiUrls = {
-  production: 'https://mtaylor-notepad.herokuapp.com',
-  development: 'http://localhost:4741'
+  production: 'https://mtaylor124.github.io/notepad-client/',
+  development: 'http://localhost:7165'
 }
 
 if (window.location.hostname === 'localhost') {
