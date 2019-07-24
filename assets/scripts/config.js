@@ -2,7 +2,7 @@
 
 let apiUrl
 const apiUrls = {
-  production: 'https://mtaylor124.github.io/notepad-client/',
+  production: 'https://mtaylor124.github.io/notepad-client',
   development: 'http://localhost:7165'
 }
 
