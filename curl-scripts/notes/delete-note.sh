@@ -1,6 +1,6 @@
 #!/bin/bash
 
-curl --include "https://mtaylor-notepad.herokuapp.com/notes/${ID}" \
+curl --include "https://mtaylor-notepad.herokuapp.com/notes" \
 --include \
 --request DELETE
 echo
