@@ -1,129 +1,73 @@
-[![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
+## Introduction
+Nugpad by Matt Taylor
+The goal of this full-stack SPA is to utilize front end design including
+JavaScript functionality along with back-end ruby-on rails API.
+The goal of Nugpad is to provide a place to create, view, update and delete
+notes on one single browser application. Many notepad applications
+are operating system dependant and cannot transfer between different media
+devices. Having notes stored on an online application provides the versitility
+and convenience of being able to access personal notes at any time on any
+device that has access to the internet.
 
-# browser-template
+Nugpad will also serve as an ongoing experiment that I will use to practice
+different UX changes to make more attractive and user-friendly applications.
 
-A template for starting front-end projects. Webpack for `require` system, build
-pipeline, and development server. Boostrap and Handlebars.js included. No
-front-end frameworks included.
+## development Process
 
-## Installation
+Nugpad was initially designed with the wireframe shown here
+(https://imgur.com/a/PLmbULB)
 
-1. [Download](../../archive/master.zip) this template.
-    - **Do Not Fork And Clone**
-    - Click the "Clone or Download" button and select "Download Zip".
-1. Move to the `wdi/projects` directory, then unzip the template directory with
-    `unzip /Users/<user-name>/Downloads/browser-template-master.zip`.
-1. Rename the template directory from `browser-template-master` to
-    `<project-name>-client`.
-1. Empty [`README.md`](README.md) and fill with your own content.
-1. Replace all instances of `ga-wdi-boston.browser-template` with the name of
-    your project.
-    - You can search for all instances of text in Atom by pressing
-    `commant + shift + f` on Mac or `ctrl + shift + f` on WSL.
-1. Move into the new project and `git init`.
-1. Add all of the files in your project with the command `git add --all`.
-      - **Note: This is the only time you should run this command!**
-1. Commit all of your files with the command `git commit`.
-      - Your commit title should read `Initial commit`.
-1. Install dependencies with `npm install`.
-1. Create a new repository on [github.com](https://github.com),
-    _not GitHub Enterprise_.
-1. Name the new repository with the same name used on Step 3.
-1. Follow the instructions on your new repository's setup page. For details on
-   how to push to Github, refer to the section on Github entitled "…or push an existing
-   repository from the command line." Further documentation can be found [here](https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/).
+The User Authentication process were build within HTML5 and desiged ton
+connect the form data inputted in the user forms to the back end heroku
+supported API to save the user information. (see back end API readme for
+more information on the back-end process) After Authentication was completed,
+the note system needed to be created. Notes themselves needed to be able
+to be created and once they existed, users would need to be able to
+view/update/delete them and only for the users themselves. Inputs for each
+of those options were then built with the required fields. The option for
+create-notes utilized Handlebars to add each entry to below the form fields
+and only for the current user.
 
-## Structure
+Once the forms were created an functional, JavaScript logic utilizing
+jquery for dom manipulation was implemented so that only appropriate user
+options and note options would be visable at any given time.
 
-### Scripts
+Nugpad front-end was built with:
+  - JavaScript/jquery
+  - css
+  - HTML5
+  - ajax
+  - Handlebars
 
-Developers should store JavaScript files in [`assets/scripts`](assets/scripts).
-The "manifest" or entry-point is
-[`assets/scripts/app.js`](assets/scripts/app.js). In general, only
-application initialization goes in this file. It's normal for developers to
-start putting all code in this file, but encourage them to break out different
-responsibilities and use the `require` syntax put references where they're
-needed.
+## Problem Solving Strategy
 
-### Config
+Many problems arose during User Authentication and note access.
+UX issues with dom manipulation were fixed while double-checking element
+attributes. I also discovered that if you .hide() a form and then try to
+.show() elements within that form they will not show. You will need to .hide()
+and .show() individual elements at a time.
+Several other issues arose where data was not being sent/received as expected
+and the process I took to fix them involved constantly checking the console
+in the browser to read the data to ensure it's in the format expected.
+ex note.user.id vs note.user_id
 
-Developers should set `apiUrls.production` and `apiUrls.development` in
-[`assets/scripts/config.js`](assets/scripts/config.js).  With
-`apiUrls` set, developers may rely on `apiUrl` as the base for API
-URLs.
+## Planned additions for the future
 
-### Styles
+-Delete note function changing to an individual 'x' each note has in top right
+  corner
+-form data for note body having soft wrapping text
+-notes have alternating background colors (light gray/dark gray)
+-be able to have changeable fonts for the page
+-scalable for different media sizes/usable on phone
 
-Developers should store styles in [`assets/styles`](assets/styles) and load them
-from [`assets/styles/index.scss`](assets/styles/index.scss). Bootstrap version 3 is
-included in this template.
+## Wireframes and User Stories
 
-### Forms and Using `getFormFields`
+-as a user I want to be able to sign up/sign in/sign out of my account
+-as a user I want to be able to change my password
+-as a user I want to be able to create my own Notes
+-as a user I want other people to not be able to see my notes
+-as a user I want to be able to view my created notes
+-as a user I want to be able to update/delete my notes
 
-Developers should use [getFormFields](get-form-fields.md) to retrieve form data
-to send to an API.
-
-### Deployment
-
-To deploy a browser-template based SPA, run `grunt deploy`.
-
-## Adding Images
-
-To add images to your project, you must store them in the `public` directory.
-To use the image in HTML or CSS, write the path to the image like this:
-
-```html
-<img src="public/cat.jpg">
-```
-or
-```css
-#my-cool-div {
-  background-image: url('public/cat.jpg')
-}
-```
-
-Note that there's no `./` or `/` in front of `public/filename.jpg`.
-
-## Adding Fonts
-
-To add custom fonts to your app, you can either use a CDN like Google Fonts, or
-you can download the fonts and save them in the `public` directory. If you use
-the former method, follow the directions on the website providing the fonts.
-
-For local fonts, put the files in `public`, and then import and use them in a
-`.scss` file like this:
-
-```scss
-@font-face {
-  font-family: 'Nature Beauty';
-  src: url('public/Nature-Beauty.ttf') format('truetype');
-}
-
-.element-with-custom-font {
-  font-family: 'Nature Beauty';
-}
-```
-
-## Tasks
-
-Developers should run these often!
-
-- `grunt nag` or just `grunt`: runs code quality analysis tools on your code
-    and complains
-- `grunt make-standard`: reformats all your code in the JavaScript Standard Style
-- `grunt <server|serve|s>`: generates bundles, watches, and livereloads
-- `grunt build`: place bundled styles and scripts where `index.html` can find
-    them
-- `grunt deploy`: builds and deploys master branch
-
-
-## Additional Resources
-
-- [Modern Javascript Explained for Dinosaurs](https://medium.com/@peterxjang/modern-javascript-explained-for-dinosaurs-f695e9747b70)
-- [Making Sense of Front End Build Tools](https://medium.freecodecamp.org/making-sense-of-front-end-build-tools-3a1b3a87043b)
-
-## [License](LICENSE)
-
-1. All content is licensed under a CC­BY­NC­SA 4.0 license.
-1. All software code is licensed under GNU GPLv3. For commercial use or
-    alternative licensing, please contact legal@ga.co.
+Wireframe for front-end
+https://imgur.com/a/PLmbULB

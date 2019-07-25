@@ -44,7 +44,6 @@ const onCreateNote = event => {
   event.preventDefault()
   const form = event.target
   const formData = getFormFields(form)
-  console.log(formData)
   api.createNote(formData)
     .then(ui.createNoteSuccess)
     .catch(ui.createNoteFailure)
@@ -99,7 +98,6 @@ const onUpdateNote = event => {
   event.preventDefault()
   const form = event.target
   const formData = getFormFields(form)
-  console.log(formData)
   if (formData.body === '') {
     delete formData.body
   }
