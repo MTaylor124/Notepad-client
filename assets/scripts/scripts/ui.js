@@ -12,6 +12,7 @@ const signUpSuccess = () => {
 }
 const signUpFailure = () => {
   $('form').trigger('reset')
+  $('#sign-up').hide()
   $('#authNotification').text('sign up failed')
   setTimeout(function () {
     $('#authNotification').text('')
@@ -39,6 +40,7 @@ const signInFailure = () => {
   setTimeout(function () {
     $('#authNotification').text('')
   }, 2000)
+  $('#sign-in').hide()
 }
 
 const changePasswordSuccess = () => {
@@ -52,6 +54,7 @@ const changePasswordSuccess = () => {
 }
 const changePasswordFailure = () => {
   $('form').trigger('reset')
+  $('#change-password').hide()
   $('#authNotification').text('password change failed')
   setTimeout(function () {
     $('#authNotification').text('')
@@ -92,6 +95,9 @@ const showNotesSuccess = (data) => {
   setTimeout(function () {
     $('#authNotification').text('')
   }, 2000)
+  $('#create-note').hide()
+  $('#delete-note').hide()
+  $('#update-note').hide()
 }
 
 const showNotesFailure = () => {

@@ -35,7 +35,21 @@ input[name='body2'] {
   height: 75px;
 }
 
+h2, h3, h4 {
+  text-align: center;
+}
 
+h2 {
+  font-size: 20px;
+}
+
+h3 {
+  font-size: 15px;
+}
+
+h4 {
+  font-size: 14px;
+}
 
 #note-header {
   text-align: center;
@@ -71,5 +85,5 @@ form {
 #authNotification {
   position: absolute;
   top: 43px;
-  left: 42%;
+  left: 40%;
 }
