@@ -100,6 +100,15 @@ const onUpdateNote = event => {
   const form = event.target
   const formData = getFormFields(form)
   console.log(formData)
+  if (formData.body === '') {
+    delete formData.body
+  }
+  if (formData.title === '') {
+    delete formData.title
+  }
+  if (formData.priority === '') {
+    delete formData.priority
+  }
   api.updateNote(formData)
     .then(ui.updateNoteSuccess)
     .catch(ui.updateNoteFailure)
