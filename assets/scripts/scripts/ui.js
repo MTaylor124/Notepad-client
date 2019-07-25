@@ -33,6 +33,7 @@ const signInSuccess = (data) => {
   store.user = data.user
   $('#note-header').show()
   $('#show-notes').show()
+  $('#almightynugget').hide()
 }
 const signInFailure = () => {
   $('form').trigger('reset')
@@ -76,6 +77,7 @@ const signOutSuccess = () => {
   $('#create-note').hide()
   $('#update-note').hide()
   $('#delete-note').hide()
+  $('#almightynugget').show()
 }
 
 const signOutFailure = () => {
