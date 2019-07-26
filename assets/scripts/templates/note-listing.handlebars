@@ -1,11 +1,10 @@
 {{#each notes as |note|}}
-  {{log note}}
   <section data-id="{{note.id}}">
 
 
-    <h2><span>#{{note.id}}) {{note.title}}</span></h4>
-    <h3>Priority: <span>{{note.priority}}</span></h4>
-    <h4><span>{{note.body}}</span></h4>
+    <h2 class="handlethebars"><span>#{{note.id}}) {{note.title}}</span></h4>
+    <h3 class="handlethebars">Priority: <span>{{note.priority}}</span></h4>
+    <h4 class="handlethebars"><span>{{note.body}}</span></h4>
 
 
     </section>

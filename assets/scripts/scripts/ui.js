@@ -93,7 +93,11 @@ const showNotesSuccess = (data) => {
   showNotesTemplate({ notes:
   data.notes})
   $('.content').append(showNotesHtml)
-  $('#authNotification').text('notes updated successfully')
+  if (data.notes.length < 1) {
+    $('#authNotification').text('user has no notes')
+  } else {
+    $('#authNotification').text('notes list loaded')
+  }
   setTimeout(function () {
     $('#authNotification').text('')
   }, 2000)
